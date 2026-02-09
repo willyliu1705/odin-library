@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(name, author, id) {
   this.name = name;
@@ -32,15 +32,25 @@ function displayNewBook(book) {
   const bookDiv = document.createElement("li");
   let bookDetails = "";
   for (const key in book) {
-    if (key == "id") continue;
-    if (key == "author") {
-      bookDetails += book[key]
+    if (key == "id") {
+      bookDiv.classList.add(`data-${book[key]}`)
+    }
+    else if (key == "author") {
+      bookDetails += book[key] + " "
     } else {
       bookDetails += book[key] + ", "
     }
   }
   bookDiv.textContent = bookDetails;
   root.appendChild(bookDiv);
+
+  const removeButton = document.createElement("button");
+  removeButton.textContent = "remove";
+  removeButton.addEventListener("click", (event) => {
+    myLibrary = myLibrary.filter((singleBook) => singleBook.id !== book.id);
+    bookDiv.remove();
+  });
+  bookDiv.appendChild(removeButton);
 }
 
 form.addEventListener("submit", addBook);
