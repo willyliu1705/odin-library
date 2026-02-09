@@ -9,8 +9,23 @@
 </head>
 
 <body>
+  <div>
+    <ul></ul>
+  </div>
 
+  <form action="https://httpbin.org/post" method="post">
+    <div>
+      <label for="book_name">Name of Book: </label>
+      <input type="text" id="book_name" name="title">
+    </div>
 
+    <div>
+      <label for="book_author">Author: </label>
+      <input type="text" id="book_author" name="author">
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
 
   <script src="script.js"></script>
 </body>
