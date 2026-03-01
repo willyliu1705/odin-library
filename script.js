@@ -1,10 +1,16 @@
 let myLibrary = [];
 
-function Book(name, author, id) {
-  this.name = name;
-  this.author = author;
-  this.id = id;
-  this.readStatus = false;
+class Book {
+  constructor(name, author, id) {
+    this.name = name;
+    this.author = author;
+    this.id = id;
+    this.readStatus = false;
+  }
+
+  changeReadStatus() {
+    this.readStatus = this.readStatus ? false : true;
+  }
 }
 
 function createBook(name, author) {
@@ -12,10 +18,6 @@ function createBook(name, author) {
   const b = new Book(name, author, id);
   myLibrary.push(b);
   return b;
-}
-
-Book.prototype.changeReadStatus = function () {
-  this.readStatus = this.readStatus ? false : true;
 }
 
 createBook("Atomic Habits", "James Clear");
